@@ -1,0 +1,19 @@
+﻿@page
+@model Pract1.Pages.MyFirstRazorModel
+@{
+    ViewData["Title"] = "My First Razor Page";
+}
+
+<h1 class="display-4">@ViewData["Title"]</h1>
+
+<form class="mt-3" method="post">
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Your Name</label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="Name" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<p class="mt-3">@Model.Greeting</p>
