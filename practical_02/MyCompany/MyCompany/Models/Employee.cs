@@ -21,7 +21,7 @@ namespace MyCompany.Models
         [Display(Name = "Birthday")]
         public DateTime BirthDate { get; set; }
 
-        [Range(1500, 15000)]
+        [Range(2000, 15000)]
         public decimal Salary { get; set; }
 
         [Required]
