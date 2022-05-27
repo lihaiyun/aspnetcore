@@ -7,7 +7,7 @@ namespace Pract2.Models
         [Required, MinLength(2), MaxLength(8)]
         public string? Id { get; set; }
 
-        [Required, MaxLength(20)]
+        [Required, MaxLength(30)]
         public string? Name { get; set; }
 
         public static List<Department> GetList()

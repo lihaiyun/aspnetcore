@@ -11,7 +11,7 @@ namespace Pract2.Models
         [Required, RegularExpression(@"^[STFG]\d{7}[A-Z]$", ErrorMessage = "Invalid NRIC.")]
         public string? NRIC { get; set; }
 
-        [Required, MaxLength(30)]
+        [Required, MaxLength(50)]
         public string? Name { get; set; }
 
         [Required]
@@ -21,7 +21,7 @@ namespace Pract2.Models
         [Display(Name = "Birthday")]
         public DateTime BirthDate { get; set; }
 
-        [Range(1500, 9000)]
+        [Range(1500, 15000)]
         public decimal Salary { get; set; }
 
         [Required]
