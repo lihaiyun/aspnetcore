@@ -12,7 +12,7 @@
     <div class="row mb-3">
         <label class="col-sm-2 col-form-label" asp-for="MyEmployee.Id"></label>
         <div class="col-sm-10">
-            <input class="form-control" asp-for="MyEmployee.Id" />
+            <input class="form-control" asp-for="MyEmployee.Id"/>
             <span asp-validation-for="MyEmployee.Id" class="text-danger"></span>
         </div>
     </div>
@@ -20,7 +20,7 @@
     <div class="row mb-3">
         <label class="col-sm-2 col-form-label" asp-for="MyEmployee.NRIC"></label>
         <div class="col-sm-10">
-            <input class="form-control" asp-for="MyEmployee.NRIC" />
+            <input class="form-control" asp-for="MyEmployee.NRIC" oninput="this.value = this.value.toUpperCase()"/>
             <span asp-validation-for="MyEmployee.NRIC" class="text-danger"></span>
         </div>
     </div>
