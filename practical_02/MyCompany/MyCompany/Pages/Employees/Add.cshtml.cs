@@ -9,11 +9,12 @@ namespace MyCompany.Pages.Employees
         [BindProperty]
         public Employee MyEmployee { get; set; } = new Employee()
         {
-            Id = "lihy",
-            NRIC = "S1234567A",
-            Name = "Haiyun",
-            Gender = "F",
-            DeptId = "IT",
+            // Test Data
+            //Id = "lihy",
+            //NRIC = "S1234567A",
+            //Name = "Haiyun",
+            //Gender = "F",
+            //DeptId = "IT",
             BirthDate = new DateTime(DateTime.Now.Year - 18, 1, 1),
             Salary = 3000
         };

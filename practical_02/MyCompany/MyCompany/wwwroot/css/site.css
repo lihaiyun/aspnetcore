@@ -21,10 +21,6 @@ input, select {
     max-width: 600px;
 }
 
-.dropdown-item:focus {
-    background-color: rgb(232, 240, 254);
-}
-
 .btn {
     min-width: 80px;
 }
