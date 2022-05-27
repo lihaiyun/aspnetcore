@@ -1,0 +1,84 @@
+﻿@page
+@model Pract2.Pages.Employees.AddModel
+@{
+    ViewData["Title"] = "Add Employee";
+}
+
+<h1 class="display-4">@ViewData["Title"]</h1>
+
+<form class="mt-3" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Employee ID</label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="MyEmployee.Id" />
+            <span asp-validation-for="MyEmployee.Id" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">NRIC</label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="MyEmployee.NRIC" />
+            <span asp-validation-for="MyEmployee.NRIC" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="MyEmployee.Name" />
+            <span asp-validation-for="MyEmployee.Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Birthday</label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="MyEmployee.BirthDate" />
+            <span asp-validation-for="MyEmployee.BirthDate" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Gender</label>
+        <div class="col-sm-10 d-flex align-items-center">
+            <div class="form-check form-check-inline">
+                @Html.RadioButton("MyEmployee.Gender", "M", new {@class = "form-check-input"})
+                <label class="form-check-label">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                @Html.RadioButton("MyEmployee.Gender", "F", new {@class = "form-check-input"})
+                <label class="form-check-label">Female</label>
+            </div>
+            <span asp-validation-for="MyEmployee.Gender" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Department</label>
+        <div class="col-sm-10">
+            @Html.DropDownList("Myemployee.Department", new SelectList(Model.DepartmentList, "Id", "Name"), "-- Select --", new {@class = "form-select"})
+            <span asp-validation-for="MyEmployee.DeptId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Salary</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="number" asp-for="MyEmployee.Salary" />
+            <span asp-validation-for="MyEmployee.Salary" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div>
+        <input id="create" type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

@@ -20,3 +20,7 @@ body {
 input, select {
     max-width: 600px;
 }
+
+.dropdown-item:focus {
+    background-color: lightgray;
+}
