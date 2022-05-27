@@ -16,3 +16,15 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+input, select {
+    max-width: 600px;
+}
+
+.dropdown-item:focus {
+    background-color: lightgray;
+}
+
+.btn {
+    min-width: 80px;
+}
