@@ -8,7 +8,7 @@ namespace Pract1.Pages
         [BindProperty]
         public string? Name { get; set; }
 
-        public string Greeting = string.Empty;
+        public string? Greeting { get; set; }
 
         public void OnGet()
         {

@@ -14,9 +14,9 @@ namespace Pract1.Pages
         [BindProperty]
         public string? Operator { get; set; }
 
-        public List<string> OperatorList = new() { "+", "-", "x", "/" };
+        public List<string> OperatorList { get; set; } = new() { "+", "-", "x", "/" };
 
-        public string ResultStr = string.Empty;
+        public string? ResultStr { get; set; }
 
         public void OnGet()
         {
