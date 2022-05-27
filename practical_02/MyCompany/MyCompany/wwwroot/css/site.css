@@ -22,7 +22,7 @@ input, select {
 }
 
 .dropdown-item:focus {
-    background-color: lightgray;
+    background-color: rgb(232, 240, 254);
 }
 
 .btn {

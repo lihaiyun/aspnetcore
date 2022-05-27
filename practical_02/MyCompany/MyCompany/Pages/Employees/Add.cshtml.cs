@@ -9,6 +9,11 @@ namespace MyCompany.Pages.Employees
         [BindProperty]
         public Employee MyEmployee { get; set; } = new Employee()
         {
+            Id = "lihy",
+            NRIC = "S1234567A",
+            Name = "Haiyun",
+            Gender = "F",
+            DeptId = "IT",
             BirthDate = new DateTime(DateTime.Now.Year - 18, 1, 1),
             Salary = 3000
         };
@@ -21,7 +26,9 @@ namespace MyCompany.Pages.Employees
 
         public IActionResult OnPost()
         {
-            return Page();
+            TempData["FlashMessage.Type"] = "success";
+            TempData["FlashMessage.Text"] = string.Format("Employee {0} is added", MyEmployee.Name);
+            return Redirect("/Employees");
         }
     }
 }
