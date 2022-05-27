@@ -19,7 +19,13 @@ namespace MyCompany.Pages.Employees
             Salary = 3000
         };
 
-        public List<Department> DepartmentList { get; set; } = Department.GetList();
+        public List<Department> DepartmentList { get; set; } = new()
+        {
+            new Department{ Id = "FIN", Name = "Finance"},
+            new Department{ Id = "HR", Name = "Human Resource"},
+            new Department{ Id = "IT", Name = "Information Technology"},
+            new Department{ Id = "SAL", Name = "Sales"}
+        };
 
         public void OnGet()
         {
