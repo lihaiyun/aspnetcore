@@ -18,5 +18,10 @@ namespace Pract2.Pages.Employees
         public void OnGet()
         {
         }
+
+        public IActionResult OnPost()
+        {
+            return Page();
+        }
     }
 }
