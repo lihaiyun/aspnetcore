@@ -33,3 +33,8 @@ a {
     background-color: #9f5317;
     border-color: #9f5317;
 }
+
+    .btn-primary:hover {
+        background-color: saddlebrown;
+        border-color: saddlebrown;
+    }
