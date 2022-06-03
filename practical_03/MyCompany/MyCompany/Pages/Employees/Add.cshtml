@@ -1,0 +1,85 @@
+﻿@page
+@model MyCompany.Pages.Employees.AddModel
+@{
+    ViewData["Title"] = "Add Employee";
+}
+
+<h1 class="display-4">@ViewData["Title"]</h1>
+
+<form class="mt-3" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="MyEmployee.Id"></label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="MyEmployee.Id" />
+            <span asp-validation-for="MyEmployee.Id" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="MyEmployee.NRIC"></label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="MyEmployee.NRIC" oninput="this.value = this.value.toUpperCase()" />
+            <span asp-validation-for="MyEmployee.NRIC" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="MyEmployee.Name"></label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="MyEmployee.Name" />
+            <span asp-validation-for="MyEmployee.Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="MyEmployee.BirthDate"></label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="MyEmployee.BirthDate" />
+            <span asp-validation-for="MyEmployee.BirthDate" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="MyEmployee.Gender"></label>
+        <div class="col-sm-10 d-flex align-items-center">
+            <div class="form-check form-check-inline">
+                @Html.RadioButtonFor(m => m.MyEmployee.Gender, "M", new {@class = "form-check-input"})
+                <label class="form-check-label">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                @Html.RadioButtonFor(m => m.MyEmployee.Gender, "F", new {@class = "form-check-input"})
+                <label class="form-check-label">Female</label>
+            </div>
+            <span asp-validation-for="MyEmployee.Gender" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="MyEmployee.DeptId"></label>
+        <div class="col-sm-10">
+            @Html.DropDownListFor(m => m.MyEmployee.DeptId, new SelectList(Model.DepartmentList, "Id", "Name"), "-- Select --", new {@class = "form-select"})
+            <span asp-validation-for="MyEmployee.DeptId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="MyEmployee.Salary"></label>
+        <div class="col-sm-10">
+            <input class="form-control" type="number" asp-for="MyEmployee.Salary" />
+            <span asp-validation-for="MyEmployee.Salary" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div>
+        <input type="submit" value="Add" class="btn btn-primary" />
+        <a class="btn btn-secondary ms-2" href="/Employees">Cancel</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
