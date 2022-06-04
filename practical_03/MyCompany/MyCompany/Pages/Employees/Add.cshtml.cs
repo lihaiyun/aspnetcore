@@ -18,13 +18,13 @@ namespace MyCompany.Pages.Employees
         public Employee MyEmployee { get; set; } = new Employee()
         {
             // Test Data
-            Id = "LIHY",
-            NRIC = "S1234567A",
-            Name = "Haiyun",
+            Id = "MAYT",
+            NRIC = "S1111111D",
+            Name = "May Tan",
             Gender = "F",
             DepartmentId = "IT",
             BirthDate = new DateTime(DateTime.Now.Year - 18, 1, 1),
-            Salary = 3000
+            Salary = 5000
         };
 
         public List<Department> DepartmentList { get; set; }
