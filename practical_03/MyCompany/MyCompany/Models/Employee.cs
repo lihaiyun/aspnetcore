@@ -26,6 +26,6 @@ namespace MyCompany.Models
 
         [Required]
         [Display(Name = "Department")]
-        public string? DeptId { get; set; }
+        public string? DepartmentId { get; set; }
     }
 }
