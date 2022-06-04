@@ -27,5 +27,7 @@ namespace MyCompany.Models
         [Required]
         [Display(Name = "Department")]
         public string? DepartmentId { get; set; }
+
+        public Department Department { get; set; }
     }
 }
