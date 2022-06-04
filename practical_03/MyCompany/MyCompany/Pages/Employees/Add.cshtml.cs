@@ -1,11 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MyCompany.Models;
+using MyCompany.Services;
 
 namespace MyCompany.Pages.Employees
 {
     public class AddModel : PageModel
     {
+        private readonly DepartmentService _departmentService;
+
+        public AddModel(DepartmentService departmentService)
+        {
+            _departmentService = departmentService;
+        }
+
         [BindProperty]
         public Employee MyEmployee { get; set; } = new Employee()
         {
@@ -19,16 +27,11 @@ namespace MyCompany.Pages.Employees
             Salary = 3000
         };
 
-        public List<Department> DepartmentList { get; set; } = new()
-        {
-            new Department{ Id = "FIN", Name = "Finance"},
-            new Department{ Id = "HR", Name = "Human Resource"},
-            new Department{ Id = "IT", Name = "Information Technology"},
-            new Department{ Id = "SAL", Name = "Sales"}
-        };
+        public List<Department> DepartmentList { get; set; }
 
         public void OnGet()
         {
+            DepartmentList = _departmentService.GetAll();
         }
 
         public IActionResult OnPost()
