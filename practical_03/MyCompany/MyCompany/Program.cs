@@ -8,6 +8,7 @@ builder.Services.AddRazorPages();
 // Understanding Dependency Injection Lifetime
 // https://www.c-sharpcorner.com/article/understanding-addtransient-vs-addscoped-vs-addsingleton-in-asp-net-core/
 builder.Services.AddScoped<DepartmentService>();
+builder.Services.AddScoped<EmployeeService>();
 
 var app = builder.Build();
 
