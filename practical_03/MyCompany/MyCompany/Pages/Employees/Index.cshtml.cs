@@ -18,7 +18,7 @@ namespace MyCompany.Pages.Employees
 
         public void OnGet()
         {
-            EmployeeList = _employeeService.GetAll().OrderBy(m => m.Name).ToList();
+            EmployeeList = _employeeService.GetAll();
         }
     }
 }

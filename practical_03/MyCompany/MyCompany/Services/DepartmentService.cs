@@ -14,7 +14,7 @@ namespace MyCompany.Services
 
         public List<Department> GetAll()
         {
-            return AllDepartments;
+            return AllDepartments.OrderBy(d => d.Name).ToList();
         }
 
         public Department? GetDepartmentById(string id)

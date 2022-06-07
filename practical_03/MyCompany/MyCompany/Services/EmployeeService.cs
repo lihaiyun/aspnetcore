@@ -18,7 +18,7 @@ namespace MyCompany.Services
 
         public List<Employee> GetAll()
         {
-            return AllEmployees;
+            return AllEmployees.OrderBy(m => m.Name).ToList();
         }
 
         public Employee? GetEmployeeById(string id)
