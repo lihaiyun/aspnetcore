@@ -4,7 +4,7 @@ namespace MyCompany.Services
 {
     public class EmployeeService
     {
-        private List<Employee> AllEmployees = new()
+        private static List<Employee> AllEmployees = new()
         {
             new Employee {Id = "MAYT", NRIC = "S1111111D", Name = "May Tan",Gender = "F",
                 BirthDate = DateTime.Parse("11/11/1980"), Salary = 5000, DepartmentId = "IT"},
@@ -25,6 +25,11 @@ namespace MyCompany.Services
         {
             Employee? employee = AllEmployees.FirstOrDefault(x => x.Id.Equals(id));
             return employee;
+        }
+
+        public void AddEmployee(Employee employee)
+        {
+            AllEmployees.Add(employee);
         }
     }
 }

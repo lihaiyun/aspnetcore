@@ -4,7 +4,7 @@ namespace MyCompany.Services
 {
     public class DepartmentService
     {
-        private List<Department> AllDepartments = new()
+        private static List<Department> AllDepartments = new()
         {
             new Department{ Id = "FIN", Name = "Finance"},
             new Department{ Id = "HR", Name = "Human Resource"},
