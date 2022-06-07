@@ -1,0 +1,42 @@
+﻿@page
+@model MyCompany.Pages.Employees.DetailsModel
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<h1 class="display-4">@ViewData["Title"]</h1>
+
+<div>
+    <div>
+        <label class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.MyEmployee.Id):</label>
+        <label>@Model.MyEmployee.Id</label>
+    </div>
+    <div>
+        <label class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.MyEmployee.NRIC):</label>
+        <label>@Model.MyEmployee.NRIC</label>
+    </div>
+    <div>
+        <label class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.MyEmployee.Name):</label>
+        <label>@Model.MyEmployee.Name</label>
+    </div>
+    <div>
+        <label class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.MyEmployee.BirthDate):</label>
+        <label>@Model.MyEmployee.BirthDate.ToShortDateString()</label>
+    </div>
+    <div>
+        <label class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.MyEmployee.Gender):</label>
+        <label>@Model.MyEmployee.Gender</label>
+    </div>
+    <div>
+        <label class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.MyEmployee.DepartmentId):</label>
+        <label>@Model.MyEmployee.Department.Name</label>
+    </div>
+    <div>
+        <label class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.MyEmployee.Salary):</label>
+        <label>@Model.MyEmployee.Salary</label>
+    </div>
+
+    <div class="mt-3">
+        <a class="btn btn-secondary" href="/Employees">Back</a>
+    </div>
+</div>

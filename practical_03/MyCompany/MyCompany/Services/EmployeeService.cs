@@ -4,7 +4,7 @@ namespace MyCompany.Services
 {
     public class EmployeeService
     {
-        private List<Employee> AllEmployees = new List<Employee>
+        private List<Employee> AllEmployees = new()
         {
             new Employee {Id = "MAYT", NRIC = "S1111111D", Name = "May Tan",Gender = "F",
                 BirthDate = DateTime.Parse("11/11/1980"), Salary = 5000, DepartmentId = "IT"},
@@ -19,6 +19,12 @@ namespace MyCompany.Services
         public List<Employee> GetAll()
         {
             return AllEmployees;
+        }
+
+        public Employee? GetEmployeeById(string id)
+        {
+            Employee? employee = AllEmployees.FirstOrDefault(x => x.Id.Equals(id));
+            return employee;
         }
     }
 }
