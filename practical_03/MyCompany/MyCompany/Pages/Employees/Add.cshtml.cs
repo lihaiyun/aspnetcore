@@ -7,7 +7,7 @@ namespace MyCompany.Pages.Employees
 {
     public class AddModel : PageModel
     {
-        private readonly DepartmentService _departmentService;
+        private readonly DepartmentService _departmentService = new();
 
         public AddModel(DepartmentService departmentService)
         {
@@ -15,22 +15,19 @@ namespace MyCompany.Pages.Employees
         }
 
         [BindProperty]
-        public Employee MyEmployee { get; set; } = new Employee()
-        {
-            // Test Data
-            //Id = "MAYT",
-            //NRIC = "S1111111D",
-            //Name = "May Tan",
-            //Gender = "F",
-            //DepartmentId = "IT",
-            BirthDate = new DateTime(DateTime.Now.Year - 18, 1, 1),
-            Salary = 2000
-        };
+        public Employee MyEmployee { get; set; } = new();
 
-        public List<Department> DepartmentList { get; set; }
+        public List<Department> DepartmentList { get; set; } = new();
 
         public void OnGet()
         {
+            // Test Data
+            MyEmployee.Id = "MAYT";
+            MyEmployee.NRIC = "S1111111D";
+            MyEmployee.Name = "May Tan";
+            MyEmployee.Gender = "F";
+            MyEmployee.DepartmentId = "IT";
+
             DepartmentList = _departmentService.GetAll();
         }
 
