@@ -21,13 +21,13 @@ namespace MyCompany.Models
         [Display(Name = "Birthday")]
         public DateTime BirthDate { get; set; } = new DateTime(DateTime.Now.Year - 18, 1, 1);
 
-        [Range(2000, 15000)]
-        public decimal Salary { get; set; } = 2000;
-
         [Required]
         [Display(Name = "Department")]
         public string DepartmentId { get; set; } = string.Empty;
 
         public Department Department { get; set; } = new();
+
+        [Range(2000, 15000)]
+        public decimal Salary { get; set; } = 2000;
     }
 }
