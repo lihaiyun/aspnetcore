@@ -1,3 +1,4 @@
+using MyCompany;
 using MyCompany.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,8 @@ builder.Services.AddRazorPages();
 // https://www.c-sharpcorner.com/article/understanding-addtransient-vs-addscoped-vs-addsingleton-in-asp-net-core/
 builder.Services.AddScoped<DepartmentService>();
 builder.Services.AddScoped<EmployeeService>();
+
+builder.Services.AddDbContext<MyDbContext>();
 
 var app = builder.Build();
 
