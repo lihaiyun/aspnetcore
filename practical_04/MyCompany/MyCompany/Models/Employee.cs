@@ -27,7 +27,7 @@ namespace MyCompany.Models
         [Display(Name = "Department")]
         public string DepartmentId { get; set; } = string.Empty;
 
-        public Department Department { get; set; } = new();
+        public Department? Department { get; set; }
 
         [Range(2000, 15000)]
         [Column(TypeName = "decimal(7,2)")]
