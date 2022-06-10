@@ -4,32 +4,28 @@ namespace MyCompany.Services
 {
     public class EmployeeService
     {
-        private static List<Employee> AllEmployees = new()
+        private MyDbContext _context;
+
+        public EmployeeService(MyDbContext context)
         {
-            new Employee {EmployeeId = "MAYT", NRIC = "S1111111D", Name = "May Tan",Gender = "F",
-                BirthDate = DateTime.Parse("11/11/1980"), Salary = 5000, DepartmentId = "IT"},
-            new Employee {EmployeeId = "JOHL", NRIC = "S1212121A", Name = "John Lim",Gender = "M",
-                BirthDate = DateTime.Parse("01/11/1981"), Salary = 3000, DepartmentId = "HR" },
-            new Employee {EmployeeId = "JOAT", NRIC = "S1313131B", Name = "Joann Tan",Gender = "F",
-                BirthDate = DateTime.Parse("11/11/1990"), Salary = 4000 , DepartmentId = "FIN"},
-            new Employee {EmployeeId = "PETA", NRIC = "S1234567D", Name = "Peter Ang",Gender = "M",
-                BirthDate = DateTime.Parse("01/11/1991"), Salary = 5000, DepartmentId = "SAL" },
-         };
+            _context = context;
+        }
 
         public List<Employee> GetAll()
         {
-            return AllEmployees.OrderBy(m => m.Name).ToList();
+            return _context.Employees.OrderBy(m => m.Name).ToList();
         }
 
         public Employee? GetEmployeeById(string id)
         {
-            Employee? employee = AllEmployees.FirstOrDefault(x => x.EmployeeId.Equals(id));
+            Employee? employee = _context.Employees.FirstOrDefault(x => x.EmployeeId.Equals(id));
             return employee;
         }
 
         public void AddEmployee(Employee employee)
         {
-            AllEmployees.Add(employee);
+            _context.Employees.Add(employee);
+            _context.SaveChanges();
         }
     }
 }
