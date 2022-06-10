@@ -16,7 +16,6 @@ namespace MyCompany.Pages.Employees
             _departmentService = departmentService;
         }
 
-        [BindProperty]
         public Employee MyEmployee { get; set; } = new();
 
         public IActionResult OnGet(string id)
