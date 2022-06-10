@@ -16,15 +16,21 @@ namespace MyCompany.Pages.Employees
             _departmentService = departmentService;
         }
 
+        [BindProperty]
         public Employee MyEmployee { get; set; } = new();
 
-        public void OnGet(string id)
+        public IActionResult OnGet(string id)
         {
             Employee? employee = _employeeService.GetEmployeeById(id);
             if (employee != null)
             {
                 MyEmployee = employee;
                 MyEmployee.Department = _departmentService.GetDepartmentById(employee.DepartmentId);
+                return Page();
+            }
+            else
+            {
+                return Redirect("/Employees");
             }
         }
     }
