@@ -19,7 +19,7 @@ namespace MyCompany.Pages.Employees
         [BindProperty]
         public Employee MyEmployee { get; set; } = new();
 
-        public List<Department> DepartmentList { get; set; } = new();
+        public static List<Department> DepartmentList { get; set; } = new();
 
         public void OnGet()
         {
@@ -35,11 +35,22 @@ namespace MyCompany.Pages.Employees
 
         public IActionResult OnPost()
         {
-            _employeeService.AddEmployee(MyEmployee);
+            if (ModelState.IsValid)
+            {
+                Employee? employee = _employeeService.GetEmployeeById(MyEmployee.EmployeeId);
+                if (employee != null)
+                {
+                    TempData["FlashMessage.Type"] = "danger";
+                    TempData["FlashMessage.Text"] = string.Format("Employee ID {0} alreay exists", MyEmployee.EmployeeId);
+                    return Page();
+                }
 
-            TempData["FlashMessage.Type"] = "success";
-            TempData["FlashMessage.Text"] = string.Format("Employee {0} is added", MyEmployee.Name);
-            return Redirect("/Employees");
+                _employeeService.AddEmployee(MyEmployee);
+                TempData["FlashMessage.Type"] = "success";
+                TempData["FlashMessage.Text"] = string.Format("Employee {0} is added", MyEmployee.Name);
+                return Redirect("/Employees");
+            }
+            return Page();
         }
     }
 }
