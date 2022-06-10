@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyCompany.Models
 {
@@ -20,7 +19,6 @@ namespace MyCompany.Models
 
         [DataType(DataType.Date)]
         [Display(Name = "Birthday")]
-        [Column(TypeName = "date")]
         public DateTime BirthDate { get; set; } = new DateTime(DateTime.Now.Year - 18, 1, 1);
 
         [Required]
@@ -30,7 +28,6 @@ namespace MyCompany.Models
         public Department Department { get; set; } = new();
 
         [Range(2000, 15000)]
-        [Column(TypeName = "decimal(7,2)")]
         public decimal Salary { get; set; } = 2000;
     }
 }
