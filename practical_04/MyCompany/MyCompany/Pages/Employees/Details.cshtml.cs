@@ -44,7 +44,6 @@ namespace MyCompany.Pages.Employees
                 _employeeService.UpdateEmployee(MyEmployee);
                 TempData["FlashMessage.Type"] = "success";
                 TempData["FlashMessage.Text"] = string.Format("Employee {0} is updated", MyEmployee.Name);
-                return Redirect("/Employees");
             }
             return Page();
         }
