@@ -59,7 +59,7 @@
     <div class="row mb-3">
         <label class="col-sm-2 col-form-label" asp-for="MyEmployee.DepartmentId"></label>
         <div class="col-sm-10">
-            @Html.DropDownListFor(m => m.MyEmployee.DepartmentId, new SelectList(Model.DepartmentList, "Id", "Name"), "-- Select --", new {@class = "form-select"})
+            @Html.DropDownListFor(m => m.MyEmployee.DepartmentId, new SelectList(Model.DepartmentList, "DepartmentId", "Name"), "-- Select --", new {@class = "form-select"})
             <span asp-validation-for="MyEmployee.DepartmentId" class="text-danger"></span>
         </div>
     </div>
