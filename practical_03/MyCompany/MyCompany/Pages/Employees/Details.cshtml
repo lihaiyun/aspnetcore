@@ -29,7 +29,7 @@
     </div>
     <div>
         <label class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.MyEmployee.DepartmentId):</label>
-        <label>@Model.MyEmployee.Department.Name</label>
+        <label>@Model.MyEmployee.Department?.Name</label>
     </div>
     <div>
         <label class="col-sm-2 col-form-label">@Html.DisplayNameFor(m => m.MyEmployee.Salary):</label>

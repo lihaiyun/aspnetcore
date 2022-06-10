@@ -24,12 +24,7 @@ namespace MyCompany.Pages.Employees
             if (employee != null)
             {
                 MyEmployee = employee;
-
-                Department? department = _departmentService.GetDepartmentById(employee.DepartmentId);
-                if (department != null)
-                {
-                    MyEmployee.Department = department;
-                }
+                MyEmployee.Department = _departmentService.GetDepartmentById(employee.DepartmentId);
             }
         }
     }
