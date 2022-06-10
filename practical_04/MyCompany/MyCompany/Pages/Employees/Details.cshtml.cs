@@ -16,16 +16,37 @@ namespace MyCompany.Pages.Employees
             _departmentService = departmentService;
         }
 
+        [BindProperty]
         public Employee MyEmployee { get; set; } = new();
 
-        public void OnGet(string id)
+        public static List<Department> DepartmentList { get; set; } = new();
+
+        public IActionResult OnGet(string id)
         {
+            DepartmentList = _departmentService.GetAll();
+
             Employee? employee = _employeeService.GetEmployeeById(id);
             if (employee != null)
             {
                 MyEmployee = employee;
-                MyEmployee.Department = _departmentService.GetDepartmentById(employee.DepartmentId);
+                return Page();
             }
+            else
+            {
+                return Redirect("/Employees");
+            }
+        }
+
+        public IActionResult OnPost()
+        {
+            if (ModelState.IsValid)
+            {
+                _employeeService.UpdateEmployee(MyEmployee);
+                TempData["FlashMessage.Type"] = "success";
+                TempData["FlashMessage.Text"] = string.Format("Employee {0} is updated", MyEmployee.Name);
+                return Redirect("/Employees");
+            }
+            return Page();
         }
     }
 }

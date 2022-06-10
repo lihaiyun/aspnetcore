@@ -27,5 +27,11 @@ namespace MyCompany.Services
             _context.Employees.Add(employee);
             _context.SaveChanges();
         }
+
+        public void UpdateEmployee(Employee employee)
+        {
+            _context.Employees.Update(employee);
+            _context.SaveChanges();
+        }
     }
 }
