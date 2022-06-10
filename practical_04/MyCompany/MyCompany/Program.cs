@@ -12,6 +12,8 @@ builder.Services.AddScoped<DepartmentService>();
 builder.Services.AddScoped<EmployeeService>();
 
 // Entity Framework Core - Managing Schemas - Migrations
+// Add-Migration InitialCreate
+// Update-Database
 // https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=vs
 builder.Services.AddDbContext<MyDbContext>();
 
