@@ -24,7 +24,7 @@ namespace MyCompany.Pages.Employees
         public void OnGet()
         {
             // Test Data
-            //MyEmployee.Id = "MAYT";
+            //MyEmployee.EmployeeId = "MAYT";
             //MyEmployee.NRIC = "S1111111D";
             //MyEmployee.Name = "May Tan";
             //MyEmployee.Gender = "F";
