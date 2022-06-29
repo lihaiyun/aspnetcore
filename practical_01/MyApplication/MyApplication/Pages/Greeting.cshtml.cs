@@ -6,9 +6,9 @@ namespace MyApplication.Pages
     public class GreetingModel : PageModel
     {
         [BindProperty]
-        public string? Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
-        public string? Greeting { get; set; }
+        public string Greeting { get; set; } = string.Empty;
 
         public void OnGet()
         {

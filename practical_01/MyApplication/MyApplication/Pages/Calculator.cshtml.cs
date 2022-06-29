@@ -12,11 +12,11 @@ namespace MyApplication.Pages
         public decimal Num2 { get; set; }
 
         [BindProperty]
-        public string? Operator { get; set; }
+        public string Operator { get; set; } = string.Empty;
 
         public List<string> OperatorList { get; set; } = new() { "+", "-", "x", "/" };
 
-        public string? ResultStr { get; set; }
+        public string Result { get; set; } = string.Empty;
 
         public void OnGet()
         {
@@ -26,27 +26,27 @@ namespace MyApplication.Pages
         {
             if (string.IsNullOrEmpty(Operator))
             {
-                ResultStr = string.Empty;
+                Result = string.Empty;
             }
             else if (Operator.Equals("+"))
             {
-                ResultStr = Convert.ToString(Num1 + Num2);
+                Result = Convert.ToString(Num1 + Num2);
             }
             else if (Operator.Equals("-"))
             {
-                ResultStr = Convert.ToString(Num1 - Num2);
+                Result = Convert.ToString(Num1 - Num2);
             }
             else if (Operator.Equals("x"))
             {
-                ResultStr = Convert.ToString(Num1 * Num2);
+                Result = Convert.ToString(Num1 * Num2);
             }
             else if (Operator.Equals("/"))
             {
-                ResultStr = (Num2 == 0) ? "NA" : Convert.ToString(Num1 / Num2);
+                Result = (Num2 == 0) ? "NA" : Convert.ToString(Num1 / Num2);
             }
             else
             {
-                ResultStr = string.Empty;
+                Result = string.Empty;
             }
 
             return Page();
