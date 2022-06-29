@@ -7,35 +7,35 @@ namespace MyCompany.Pages.Employees
     public class AddModel : PageModel
     {
         [BindProperty]
-        public Employee MyEmployee { get; set; } = new Employee()
-        {
-            // Test Data
-            //Id = "lihy",
-            //NRIC = "S1234567A",
-            //Name = "Haiyun",
-            //Gender = "F",
-            //DeptId = "IT",
-            BirthDate = new DateTime(DateTime.Now.Year - 18, 1, 1),
-            Salary = 3000
-        };
+        public Employee MyEmployee { get; set; } = new();
 
-        public List<Department> DepartmentList { get; set; } = new()
+        public static List<Department> DepartmentList { get; set; } = new() 
         {
-            new Department{ Id = "FIN", Name = "Finance"},
-            new Department{ Id = "HR", Name = "Human Resource"},
-            new Department{ Id = "IT", Name = "Information Technology"},
-            new Department{ Id = "SAL", Name = "Sales"}
+            new Department{ DepartmentId = "FIN", Name = "Finance"},
+            new Department{ DepartmentId = "HR", Name = "Human Resource"},
+            new Department{ DepartmentId = "IT", Name = "Information Technology"},
+            new Department{ DepartmentId = "SAL", Name = "Sales"}
         };
 
         public void OnGet()
         {
+            // Test Data
+            //MyEmployee.EmployeeId = "MAYT";
+            //MyEmployee.NRIC = "S1111111D";
+            //MyEmployee.Name = "May Tan";
+            //MyEmployee.Gender = "F";
+            //MyEmployee.DepartmentId = "IT";
         }
 
         public IActionResult OnPost()
         {
-            TempData["FlashMessage.Type"] = "success";
-            TempData["FlashMessage.Text"] = string.Format("Employee {0} is added", MyEmployee.Name);
-            return Redirect("/Employees");
+            if (ModelState.IsValid)
+            {
+                TempData["FlashMessage.Type"] = "success";
+                TempData["FlashMessage.Text"] = string.Format("Employee {0} is added", MyEmployee.Name);
+                return Redirect("/Employees");
+            }
+            return Page();
         }
     }
 }
