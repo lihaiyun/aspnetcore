@@ -18,6 +18,6 @@ namespace CarLoanAPI
             optionsBuilder.UseSqlServer(connectionString);
         }
 
-        public DbSet<LoanApplication>? LoanApplications { get; set; }
+        public DbSet<LoanApplication> LoanApplications { get; set; }
     }
 }

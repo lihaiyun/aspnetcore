@@ -1,4 +1,5 @@
 using CarLoanAPI;
+using CarLoanAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<MyDbContext>();
+builder.Services.AddScoped<LoanApplicationService>();
 
 var app = builder.Build();
 
