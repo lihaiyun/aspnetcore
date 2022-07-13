@@ -6,7 +6,7 @@ namespace CarLoanAPI.Models
     public class LoanApplication
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid LoanApplicationId { get; set; }
+        public Guid Id { get; set; }
 
         [Required, RegularExpression(@"^[STFG]\d{7}[A-Z]$", ErrorMessage = "Invalid NRIC."), MaxLength(9)]
         public string NRIC { get; set; } = string.Empty;

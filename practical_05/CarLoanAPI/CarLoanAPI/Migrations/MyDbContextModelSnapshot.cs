@@ -24,7 +24,7 @@ namespace CarLoanAPI.Migrations
 
             modelBuilder.Entity("CarLoanAPI.Models.LoanApplication", b =>
                 {
-                    b.Property<Guid>("LoanApplicationId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -52,18 +52,18 @@ namespace CarLoanAPI.Migrations
                     b.Property<int>("Term")
                         .HasColumnType("int");
 
-                    b.HasKey("LoanApplicationId");
+                    b.HasKey("Id");
 
                     b.ToTable("LoanApplications");
                 });
 
             modelBuilder.Entity("CarLoanAPI.Models.LoanRate", b =>
                 {
-                    b.Property<int>("LoanRateID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LoanRateID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<decimal>("Rate")
                         .HasColumnType("decimal(4,2)");
@@ -71,7 +71,7 @@ namespace CarLoanAPI.Migrations
                     b.Property<int>("Term")
                         .HasColumnType("int");
 
-                    b.HasKey("LoanRateID");
+                    b.HasKey("Id");
 
                     b.ToTable("LoanRates");
                 });

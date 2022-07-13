@@ -13,7 +13,7 @@ namespace CarLoanAPI.Migrations
                 name: "LoanApplications",
                 columns: table => new
                 {
-                    LoanApplicationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     NRIC = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Contact = table.Column<string>(type: "nvarchar(8)", maxLength: 8, nullable: false),
@@ -23,21 +23,21 @@ namespace CarLoanAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LoanApplications", x => x.LoanApplicationId);
+                    table.PrimaryKey("PK_LoanApplications", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "LoanRates",
                 columns: table => new
                 {
-                    LoanRateID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Term = table.Column<int>(type: "int", nullable: false),
                     Rate = table.Column<decimal>(type: "decimal(4,2)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LoanRates", x => x.LoanRateID);
+                    table.PrimaryKey("PK_LoanRates", x => x.Id);
                 });
         }
 
