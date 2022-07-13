@@ -25,7 +25,7 @@ namespace CarLoanAPI.Models
         [Column(TypeName = "decimal(12,2)")]
         public decimal LoanAmt { get; set; }
 
-        [Range(1, 10)]
+        [Range(1, 7)]
         public int Term { get; set; }
     }
 }
