@@ -6,16 +6,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-// Understanding Dependency Injection Lifetime
-// https://www.c-sharpcorner.com/article/understanding-addtransient-vs-addscoped-vs-addsingleton-in-asp-net-core/
-builder.Services.AddScoped<DepartmentService>();
-builder.Services.AddScoped<EmployeeService>();
-
 // Entity Framework Core - Managing Schemas - Migrations
 // Add-Migration InitialCreate
 // Update-Database
 // https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=vs
 builder.Services.AddDbContext<MyDbContext>();
+
+// Understanding Dependency Injection Lifetime
+// https://www.c-sharpcorner.com/article/understanding-addtransient-vs-addscoped-vs-addsingleton-in-asp-net-core/
+builder.Services.AddScoped<DepartmentService>();
+builder.Services.AddScoped<EmployeeService>();
 
 var app = builder.Build();
 
