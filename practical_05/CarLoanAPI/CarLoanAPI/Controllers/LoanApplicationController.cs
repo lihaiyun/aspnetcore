@@ -1,6 +1,5 @@
 ﻿using CarLoanAPI.Models;
 using CarLoanAPI.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarLoanAPI.Controllers
