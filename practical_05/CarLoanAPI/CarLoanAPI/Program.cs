@@ -10,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Add-Migration InitialCreate
+// Update-Database
 builder.Services.AddDbContext<MyDbContext>();
 builder.Services.AddScoped<LoanApplicationService>();
 
