@@ -4,7 +4,7 @@ namespace MyCompany.Services
 {
     public class EmployeeService
     {
-        private MyDbContext _context;
+        private readonly MyDbContext _context;
 
         public EmployeeService(MyDbContext context)
         {
