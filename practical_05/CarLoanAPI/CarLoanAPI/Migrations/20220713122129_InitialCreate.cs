@@ -25,12 +25,28 @@ namespace CarLoanAPI.Migrations
                 {
                     table.PrimaryKey("PK_LoanApplications", x => x.LoanApplicationId);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "LoanRates",
+                columns: table => new
+                {
+                    Term = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Rate = table.Column<decimal>(type: "decimal(4,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LoanRates", x => x.Term);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "LoanApplications");
+
+            migrationBuilder.DropTable(
+                name: "LoanRates");
         }
     }
 }

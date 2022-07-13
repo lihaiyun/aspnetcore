@@ -56,6 +56,22 @@ namespace CarLoanAPI.Migrations
 
                     b.ToTable("LoanApplications");
                 });
+
+            modelBuilder.Entity("CarLoanAPI.Models.LoanRate", b =>
+                {
+                    b.Property<int>("Term")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Term"), 1L, 1);
+
+                    b.Property<decimal>("Rate")
+                        .HasColumnType("decimal(4,2)");
+
+                    b.HasKey("Term");
+
+                    b.ToTable("LoanRates");
+                });
 #pragma warning restore 612, 618
         }
     }
