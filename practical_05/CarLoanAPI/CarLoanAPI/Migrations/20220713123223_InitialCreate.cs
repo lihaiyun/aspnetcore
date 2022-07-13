@@ -30,13 +30,14 @@ namespace CarLoanAPI.Migrations
                 name: "LoanRates",
                 columns: table => new
                 {
-                    Term = table.Column<int>(type: "int", nullable: false)
+                    LoanRateID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Term = table.Column<int>(type: "int", nullable: false),
                     Rate = table.Column<decimal>(type: "decimal(4,2)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LoanRates", x => x.Term);
+                    table.PrimaryKey("PK_LoanRates", x => x.LoanRateID);
                 });
         }
 

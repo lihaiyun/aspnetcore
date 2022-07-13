@@ -5,7 +5,8 @@ namespace CarLoanAPI.Models
 {
     public class LoanRate
     {
-        [Key]
+        public int LoanRateID { get; set; }
+
         [Range(1, 7)]
         public int Term { get; set; }
 
