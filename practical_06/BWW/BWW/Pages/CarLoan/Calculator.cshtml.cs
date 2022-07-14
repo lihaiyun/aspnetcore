@@ -2,12 +2,14 @@ using BWW.Models;
 using BWW.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.DataAnnotations;
 
 namespace BWW.Pages.CarLoan
 {
     public class CalculatorModel : PageModel
     {
         [BindProperty]
+        [Display(Name = "Car Price")]
         public decimal CarPrice { get; set; }
 
         [BindProperty]
