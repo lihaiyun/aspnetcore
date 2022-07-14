@@ -35,14 +35,19 @@ namespace BWW.Pages.CarLoan
             if (ModelState.IsValid)
             {
                 bool result = _loanService.SubmitLoanApplication(MyApplication);
-                if (result)
+                if (!result)
                 {
-                    MyMsg = "Your loan application is submitted for bank processing!";
+                    string msg = "Your loan application is not successful. Please try again later. If problem persists, please contact system administrator.";
+                    TempData["FlashMessage.Type"] = "danger";
+                    TempData["FlashMessage.Text"] = msg;
+                    return Page();
                 }
                 else
                 {
-                    MyMsg = "Your loan application is not successful, please correct input error.";
-                    MyMsg += " If problem persists, please contact system administrator!";
+                    string msg = "Your loan application has been submitted for bank processing.";
+                    TempData["FlashMessage.Type"] = "success";
+                    TempData["FlashMessage.Text"] = msg;
+                    return Redirect("/CarLoan/Calculator");
                 }
             }
             return Page();
