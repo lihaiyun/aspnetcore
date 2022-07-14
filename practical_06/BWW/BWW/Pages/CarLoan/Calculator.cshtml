@@ -8,32 +8,28 @@
 <form method="post">
     <div>
         <label class="col-sm-2 col-form-label">Price:</label>
-        <input asp-for="MyCarPrice" />
-        <span asp-validation-for="MyCarPrice" class="text-danger"></span>
+        <input asp-for="CarPrice" />
+        <span asp-validation-for="CarPrice" class="text-danger"></span>
     </div>
     <div>
         <label class="col-sm-2 col-form-label">COE:</label>
-        <input asp-for="MyCOE" />
-        <span asp-validation-for="MyCOE" class="text-danger"></span>
+        <input asp-for="COE" />
+        <span asp-validation-for="COE" class="text-danger"></span>
     </div>
     <div>
         <label class="col-sm-2 col-form-label">Down Payment:</label>
-        <input asp-for="MyDownPayment" />
-        <span asp-validation-for="MyDownPayment" class="text-danger"></span>
+        <input asp-for="DownPayment" />
+        <span asp-validation-for="DownPayment" class="text-danger"></span>
         <input type="submit" value="Calculate" class="btn btn-primary" />
-
-    </div>
-    <div>
-        <label class="col-form-label text-danger">@Model.MyErrMsg</label>
 
     </div>
 
     @{
-        if (@Model.MyLoanAmt > 0)
+        if (@Model.InstalmentList.Count > 0)
         {
         <div class="card-group">
 
-            @foreach (var item in Model.MyInstalmentList)
+            @foreach (var item in Model.InstalmentList)
             {
                 <div class="col-sm-4"> 
                 <div class="card text-dark ">

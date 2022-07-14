@@ -8,19 +8,15 @@ namespace BWW.Pages.CarLoan
     public class CalculatorModel : PageModel
     {
         [BindProperty]
-        public decimal MyCarPrice { get; set; }
+        public decimal CarPrice { get; set; }
 
         [BindProperty]
-        public decimal MyCOE { get; set; }
+        public decimal COE { get; set; }
 
         [BindProperty]
-        public decimal MyDownPayment { get; set; }
+        public decimal DownPayment { get; set; }
 
-        public decimal MyLoanAmt { get; set; }
-
-        public string MyErrMsg { get; set; } = string.Empty;
-
-        public List<Instalment> MyInstalmentList { get; set; } = new();
+        public List<Instalment> InstalmentList { get; set; } = new();
 
         private readonly LoanService _loanService;
 
@@ -32,20 +28,29 @@ namespace BWW.Pages.CarLoan
         public void OnGet()
         {
             // Test
-            MyCarPrice = 80000;
-            MyCOE = 50000;
-            MyDownPayment = 20000;
+            CarPrice = 80000;
+            COE = 50000;
+            DownPayment = 20000;
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
             {
-                MyLoanAmt = MyCarPrice + MyCOE - MyDownPayment;
-                if (MyLoanAmt > 0)
-                    MyInstalmentList = await _loanService.GetInstalments(MyLoanAmt);
+                decimal loanAmt = CarPrice + COE - DownPayment;
+                if (loanAmt <= 0)
+                {
+                    string msg = "Please check your inputs. The enquired loan amount should be more than 0.";
+                    TempData["FlashMessage.Type"] = "danger";
+                    TempData["FlashMessage.Text"] = msg;
+
+                    InstalmentList = new();
+                    return Page();
+                }
                 else
-                    MyErrMsg = "Please correct the inputs, the enquired loan is less than 0!";
+                {
+                    InstalmentList = await _loanService.GetInstalments(loanAmt);
+                }
             }
             return Page();
         }
