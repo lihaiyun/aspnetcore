@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen();
 // Update-Database
 builder.Services.AddDbContext<MyDbContext>();
 builder.Services.AddScoped<LoanApplicationService>();
-builder.Services.AddScoped<LoanRateService>();
+builder.Services.AddScoped<InstalmentService>();
 
 var app = builder.Build();
 

@@ -2,11 +2,11 @@
 
 namespace CarLoanAPI.Services
 {
-    public class LoanRateService
+    public class InstalmentService
     {
         private readonly MyDbContext _context;
 
-        public LoanRateService(MyDbContext context)
+        public InstalmentService(MyDbContext context)
         {
             _context = context;
         }
@@ -18,7 +18,7 @@ namespace CarLoanAPI.Services
             List<LoanRate> loanRateList = _context.LoanRates.ToList();
             foreach (LoanRate loanRate in loanRateList)
             {
-                Instalment instalment = new Instalment(loanAmt, loanRate);
+                Instalment instalment = new(loanAmt, loanRate);
                 instalmentList.Add(instalment);
             }
 

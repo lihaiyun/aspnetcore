@@ -8,11 +8,11 @@ namespace CarLoanAPI.Controllers
     [ApiController]
     public class InstalmentController : ControllerBase
     {
-        private readonly LoanRateService _loanRateService;
+        private readonly InstalmentService _instalmentService;
 
-        public InstalmentController(LoanRateService loanRateService)
+        public InstalmentController(InstalmentService instalmentService)
         {
-            _loanRateService = loanRateService;
+            _instalmentService = instalmentService;
         }
 
         // GET: api/Instalment/50000
@@ -21,7 +21,7 @@ namespace CarLoanAPI.Controllers
         {
             try
             {
-                List<Instalment> list = _loanRateService.GetInstalments(loanAmt);
+                List<Instalment> list = _instalmentService.GetInstalments(loanAmt);
                 return Ok(list);
             }
             catch (Exception)
