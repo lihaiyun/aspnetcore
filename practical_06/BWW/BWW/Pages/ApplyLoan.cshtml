@@ -1,0 +1,49 @@
+﻿@page
+@model BWW.Pages.ApplyLoanModel
+@{
+    ViewData["Title"] = "Apply";
+}
+
+<h3>Apply</h3>
+<form method="post">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <span asp-for="MyMsg" class="text-info">@Model.MyMsg</span>
+        </div>
+        <div class="form-group">
+            <label>Your Name</label>
+            <input  asp-for="MyApplication.Name" Class="form-control" placeholder="Enter Name" />
+            <span asp-validation-for="MyApplication.Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Your NRIC/FIN</label>
+            <input  asp-for="MyApplication.NRIC" Class="form-control" placeholder="Enter NRIC/FIN" />
+            <span asp-validation-for="MyApplication.NRIC" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Your Contact</label>
+            <input  asp-for="MyApplication.Contact" Class="form-control" placeholder="Enter Contact" />
+            <span asp-validation-for="MyApplication.Contact" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label>Monthly Gross Salary</label>
+            <input asp-for="MyApplication.Salary" Class="form-control" placeholder="Enter Salary" />
+        </div>
+        <div class="form-group">
+            <label>Loan Amount</label>
+            <input asp-for="MyApplication.LoanAmt" Class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label>Loan Term </label>
+            <input asp-for="MyApplication.Term" Class="form-control" readonly />
+        </div>
+
+        <input type="submit" value="Apply" Class="btn btn-info" />
+        <a asp-page="/LoanCalculator" class="btn btn-info">Back</a>
+    </div>
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
