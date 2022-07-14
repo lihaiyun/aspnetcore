@@ -10,8 +10,6 @@ namespace BWW.Pages.CarLoan
         [BindProperty]
         public LoanApplication MyApplication { get; set; } = new();
 
-        public string MyMsg { get; set; } = string.Empty;
-
         private readonly LoanService _loanService;
 
         public ApplyModel(LoanService loanService)
@@ -24,6 +22,7 @@ namespace BWW.Pages.CarLoan
             MyApplication.LoanAmt = loanAmt;
             MyApplication.Term = term;
 
+            // Test
             MyApplication.Name = "Haiyun";
             MyApplication.NRIC = "S1234567A";
             MyApplication.Contact = "65501622";

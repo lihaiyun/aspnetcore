@@ -8,9 +8,6 @@
 <form method="post">
     <div class="col-lg-6">
         <div class="form-group">
-            <span asp-for="MyMsg" class="text-info">@Model.MyMsg</span>
-        </div>
-        <div class="form-group">
             <label>Your Name</label>
             <input  asp-for="MyApplication.Name" Class="form-control" placeholder="Enter Name" />
             <span asp-validation-for="MyApplication.Name" class="text-danger"></span>

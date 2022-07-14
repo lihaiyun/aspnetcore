@@ -31,6 +31,7 @@ namespace BWW.Pages.CarLoan
 
         public void OnGet()
         {
+            // Test
             MyCarPrice = 80000;
             MyCOE = 50000;
             MyDownPayment = 20000;
