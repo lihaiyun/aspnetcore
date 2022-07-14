@@ -3,9 +3,9 @@ using BWW.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BWW.Pages
+namespace BWW.Pages.CarLoan
 {
-    public class ApplyLoanModel : PageModel
+    public class ApplyModel : PageModel
     {
         [BindProperty]
         public LoanApplication MyApplication { get; set; } = new();
@@ -14,7 +14,7 @@ namespace BWW.Pages
 
         private readonly LoanService _loanService;
 
-        public ApplyLoanModel(LoanService loanService)
+        public ApplyModel(LoanService loanService)
         {
             _loanService = loanService;
         }

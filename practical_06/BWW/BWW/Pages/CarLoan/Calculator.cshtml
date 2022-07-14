@@ -1,5 +1,5 @@
 ﻿@page
-@model BWW.Pages.LoanCalculatorModel
+@model BWW.Pages.CarLoan.CalculatorModel
 @{
     ViewData["Title"] = "LoanCalculator";
 }
@@ -55,8 +55,8 @@
                     </div>
                     <div class="card-footer">
 
-                        <a asp-page="/ApplyLoan" class="btn btn-primary" asp-route-term="@item.Term"
-                           asp-route-loanamt="@item.LoanAmt">Apply</a>
+                        <a asp-page="/CarLoan/Apply" class="btn btn-primary" 
+                           asp-route-loanamt="@item.LoanAmt" asp-route-term="@item.Term">Apply</a>
                     </div>
                 </div>
                 </div> 

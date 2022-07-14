@@ -3,9 +3,9 @@ using BWW.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BWW.Pages
+namespace BWW.Pages.CarLoan
 {
-    public class LoanCalculatorModel : PageModel
+    public class CalculatorModel : PageModel
     {
         [BindProperty]
         public decimal MyCarPrice { get; set; }
@@ -15,16 +15,16 @@ namespace BWW.Pages
 
         [BindProperty]
         public decimal MyDownPayment { get; set; }
-        
+
         public decimal MyLoanAmt { get; set; }
-        
+
         public string MyErrMsg { get; set; } = string.Empty;
 
         public List<Instalment> MyInstalmentList { get; set; } = new();
 
         private readonly LoanService _loanService;
 
-        public LoanCalculatorModel(LoanService loanService)
+        public CalculatorModel(LoanService loanService)
         {
             _loanService = loanService;
         }
