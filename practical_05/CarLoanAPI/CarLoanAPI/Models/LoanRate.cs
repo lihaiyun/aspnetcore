@@ -12,6 +12,6 @@ namespace CarLoanAPI.Models
 
         [Range(0, 30)]
         [Column(TypeName = "decimal(4,2)")]
-        public double Rate { get; set; }
+        public decimal Rate { get; set; }
     }
 }

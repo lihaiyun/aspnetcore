@@ -27,13 +27,12 @@ namespace CarLoanAPI.Controllers
             try
             {
                 _loanApplicationService.AddLoanApplication(loanApplication);
+                return Ok();
             }
             catch (Exception)
             {
                 return BadRequest("Technical Error");
             }
-
-            return Ok();
         }
     }
 }
