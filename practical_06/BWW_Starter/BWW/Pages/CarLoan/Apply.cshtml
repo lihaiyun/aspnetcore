@@ -1,0 +1,67 @@
+﻿@page
+@model BWW.Pages.CarLoan.ApplyModel
+@{
+    ViewData["Title"] = "Apply Loan";
+}
+
+<h1 class="display-4">@ViewData["Title"]</h1>
+
+<form class="mt-3" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="MyApplication.Name"></label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="MyApplication.Name" />
+            <span asp-validation-for="MyApplication.Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="MyApplication.NRIC"></label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="MyApplication.NRIC" />
+            <span asp-validation-for="MyApplication.NRIC" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="MyApplication.Contact"></label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="MyApplication.Contact" />
+            <span asp-validation-for="MyApplication.Contact" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="MyApplication.Salary"></label>
+        <div class="col-sm-10">
+            <input class="form-control" type="number" asp-for="MyApplication.Salary" />
+            <span asp-validation-for="MyApplication.Salary" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="MyApplication.LoanAmt"></label>
+        <div class="col-sm-10">
+            <input class="form-control" type="number" asp-for="MyApplication.LoanAmt" readonly />
+            <span asp-validation-for="MyApplication.LoanAmt" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="MyApplication.Term"></label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="MyApplication.Term" readonly />
+            <span asp-validation-for="MyApplication.Term" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div>
+        <input type="submit" value="Apply" class="btn btn-primary" />
+        <a class="btn btn-secondary ms-2" href="/CarLoan/Calculator">Back</a>
+    </div>
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
