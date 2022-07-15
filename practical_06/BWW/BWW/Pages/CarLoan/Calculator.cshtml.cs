@@ -48,19 +48,18 @@ namespace BWW.Pages.CarLoan
                     TempData["FlashMessage.Text"] = msg;
 
                     InstalmentList = new();
+                    return Page();
                 }
-                else
+
+                try
                 {
-                    try
-                    {
-                        InstalmentList = await _loanService.GetInstalments(loanAmt);
-                    }
-                    catch(Exception)
-                    {
-                        string msg = "The service is not available. Please try again later.";
-                        TempData["FlashMessage.Type"] = "danger";
-                        TempData["FlashMessage.Text"] = msg;
-                    }
+                    InstalmentList = await _loanService.GetInstalments(loanAmt);
+                }
+                catch (Exception)
+                {
+                    string msg = "The service is not available. Please try again later.";
+                    TempData["FlashMessage.Type"] = "danger";
+                    TempData["FlashMessage.Text"] = msg;
                 }
             }
             return Page();
