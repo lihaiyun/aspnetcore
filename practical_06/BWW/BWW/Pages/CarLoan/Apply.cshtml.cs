@@ -36,7 +36,7 @@ namespace BWW.Pages.CarLoan
                 bool result = _loanService.SubmitLoanApplication(MyApplication);
                 if (!result)
                 {
-                    string msg = "Your loan application is not successful. Please try again later. If problem persists, please contact system administrator.";
+                    string msg = "Your loan application is not successful. Please try again later.";
                     TempData["FlashMessage.Type"] = "danger";
                     TempData["FlashMessage.Text"] = msg;
                     return Page();

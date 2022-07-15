@@ -15,56 +15,92 @@
         </div>
     </div>
 
-    <div>
-        <label class="col-sm-2 col-form-label">COE:</label>
-        <input asp-for="COE" />
-        <span asp-validation-for="COE" class="text-danger"></span>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="COE"></label>
+        <div class="col-sm-10">
+            <input class="form-control" type="number" asp-for="COE" />
+            <span asp-validation-for="COE" class="text-danger"></span>
+        </div>
     </div>
-    <div>
-        <label class="col-sm-2 col-form-label">Down Payment:</label>
-        <input asp-for="DownPayment" />
-        <span asp-validation-for="DownPayment" class="text-danger"></span>
-        <input type="submit" value="Calculate" class="btn btn-primary" />
 
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="DownPayment"></label>
+        <div class="col-sm-10">
+            <input class="form-control" type="number" asp-for="DownPayment" />
+            <span asp-validation-for="DownPayment" class="text-danger"></span>
+        </div>
     </div>
+
+    <div>
+        <input type="submit" value="Calculate" class="btn btn-primary" />
+    </div>
+
+    <!--
+    <div class="row mt-3">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4>
+                        <i class="bi bi-cash-coin" style="font-size: 2rem; color: cornflowerblue;"></i>
+                        <span class="card-title ms-2">x Years</span>
+                    </h4>
+                    <ul class="list-inline text-info">
+                        <li class="list-inline-item" style="width: 30%">Loan</li>
+                        <li class="list-inline-item" style="width: 30%">Rate</li>
+                        <li class="list-inline-item" style="width: 30%">Instalment</li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item" style="width: 30%">$xx,xxx.xx</li>
+                        <li class="list-inline-item" style="width: 30%">x.xx%</li>
+                        <li class="list-inline-item" style="width: 30%">$x,xxx.xx</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a asp-page="/CarLoan/Apply" class="btn btn-primary"
+                       asp-route-loanamt="xxxx" asp-route-term="x">Apply</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
 
     @{
         if (@Model.InstalmentList.Count > 0)
         {
-        <div class="card-group">
-
-            @foreach (var item in Model.InstalmentList)
-            {
-                <div class="col-sm-4"> 
-                <div class="card text-dark ">
-                    <div class="card-body ">
-                        <h4>
-                            <i class="bi bi-cash-coin text-left" style="font-size: 2rem; color: cornflowerblue;"></i>
-                            <span class="card-title">@item.Term Years</span>
-                        </h4>
-                        <ul class="list-inline">
-                            <li class="list-inline-item text-info" style="width: 30%"> Loan </li>
-                            <li class="list-inline-item text-info" style="width: 30%">Instalment  </li>
-                            <li class="list-inline-item text-info" style="width: 30%">Loan Rate</li>
-                        </ul>
-                        <ul class="list-inline">
-                            <li class="list-inline-item" style="width: 30%">@item.LoanAmt.ToString("C")</li>
-                            <li class="list-inline-item" style="width: 30%">@item.InstalmentAmt.ToString("C")</li>
-                            <li class="list-inline-item" style="width: 30%">@item.Rate% </li>
-                        </ul>
+            <div class="row mt-3">
+                @foreach (var item in Model.InstalmentList)
+                {
+                    <div class="col-sm-4 pb-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>
+                                    <i class="bi bi-cash-coin" style="font-size: 2rem; color: cornflowerblue;"></i>
+                                    <span class="card-title ms-2">@item.Term Years</span>
+                                </h4>
+                                <ul class="list-inline text-info">
+                                    <li class="list-inline-item" style="width: 30%">Loan</li>
+                                    <li class="list-inline-item" style="width: 30%">Rate</li>
+                                    <li class="list-inline-item" style="width: 30%">Instalment</li>
+                                </ul>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item" style="width: 30%">@item.LoanAmt.ToString("C")</li>
+                                    <li class="list-inline-item" style="width: 30%">@item.Rate%</li>
+                                    <li class="list-inline-item" style="width: 30%">@item.InstalmentAmt.ToString("C")</li>
+                                </ul>
+                            </div>
+                            <div class="card-footer">
+                                <a asp-page="/CarLoan/Apply" class="btn btn-primary"
+                       asp-route-loanamt="@item.LoanAmt" asp-route-term="@item.Term">Apply</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer">
-
-                        <a asp-page="/CarLoan/Apply" class="btn btn-primary" 
-                           asp-route-loanamt="@item.LoanAmt" asp-route-term="@item.Term">Apply</a>
-                    </div>
-                </div>
-                </div> 
-            }
-        </div>
+                }
+            </div>
         }
     }
 </form>
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

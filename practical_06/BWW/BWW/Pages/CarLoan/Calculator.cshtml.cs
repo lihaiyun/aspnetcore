@@ -16,6 +16,7 @@ namespace BWW.Pages.CarLoan
         public decimal COE { get; set; }
 
         [BindProperty]
+        [Display(Name = "Down Payment")]
         public decimal DownPayment { get; set; }
 
         public List<Instalment> InstalmentList { get; set; } = new();
@@ -51,7 +52,16 @@ namespace BWW.Pages.CarLoan
                 }
                 else
                 {
-                    InstalmentList = await _loanService.GetInstalments(loanAmt);
+                    try
+                    {
+                        InstalmentList = await _loanService.GetInstalments(loanAmt);
+                    }
+                    catch(Exception)
+                    {
+                        string msg = "The service is not available. Please try again later.";
+                        TempData["FlashMessage.Type"] = "danger";
+                        TempData["FlashMessage.Text"] = msg;
+                    }
                 }
             }
             return Page();
