@@ -27,5 +27,7 @@ namespace CarLoanAPI.Models
 
         [Range(1, 7)]
         public int Term { get; set; }
+
+        public DateTime TimeCreated { get; set; } = DateTime.Now;
     }
 }

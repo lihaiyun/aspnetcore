@@ -33,6 +33,10 @@ namespace CarLoanAPI.Controllers
             {
                 return BadRequest("Technical Error");
             }
+            //catch (Exception ex)
+            //{
+            //    return BadRequest(ex.Message);
+            //}
         }
     }
 }

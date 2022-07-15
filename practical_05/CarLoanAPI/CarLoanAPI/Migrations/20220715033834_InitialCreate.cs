@@ -19,7 +19,8 @@ namespace CarLoanAPI.Migrations
                     Contact = table.Column<string>(type: "nvarchar(8)", maxLength: 8, nullable: false),
                     Salary = table.Column<decimal>(type: "decimal(9,2)", nullable: false),
                     LoanAmt = table.Column<decimal>(type: "decimal(12,2)", nullable: false),
-                    Term = table.Column<int>(type: "int", nullable: false)
+                    Term = table.Column<int>(type: "int", nullable: false),
+                    TimeCreated = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

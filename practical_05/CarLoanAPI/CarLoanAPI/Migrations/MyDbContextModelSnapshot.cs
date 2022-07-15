@@ -52,6 +52,9 @@ namespace CarLoanAPI.Migrations
                     b.Property<int>("Term")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("TimeCreated")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.ToTable("LoanApplications");

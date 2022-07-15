@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarLoanAPI.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20220713125336_InitialCreate")]
+    [Migration("20220715033834_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,6 +53,9 @@ namespace CarLoanAPI.Migrations
 
                     b.Property<int>("Term")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("TimeCreated")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
