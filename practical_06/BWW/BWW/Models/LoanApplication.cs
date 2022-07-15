@@ -14,9 +14,11 @@ namespace BWW.Models
         public string Contact { get; set; } = string.Empty;
 
         [Range(2000, 1e6)]
+        [Display(Name = "Monthly Salary")]
         public decimal Salary { get; set; }
 
         [Range(5000, 1e9)]
+        [Display(Name = "Loan Amount")]
         public decimal LoanAmt { get; set; }
 
         [Range(1, 7)]
