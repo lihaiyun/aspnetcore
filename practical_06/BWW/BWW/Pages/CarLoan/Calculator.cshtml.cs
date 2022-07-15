@@ -31,9 +31,9 @@ namespace BWW.Pages.CarLoan
         public void OnGet()
         {
             // Test
-            CarPrice = 80000;
-            COE = 50000;
-            DownPayment = 20000;
+            //CarPrice = 80000;
+            //COE = 50000;
+            //DownPayment = 20000;
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -48,7 +48,6 @@ namespace BWW.Pages.CarLoan
                     TempData["FlashMessage.Text"] = msg;
 
                     InstalmentList = new();
-                    return Page();
                 }
                 else
                 {

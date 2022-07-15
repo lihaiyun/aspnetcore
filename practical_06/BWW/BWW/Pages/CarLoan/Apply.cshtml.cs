@@ -23,10 +23,10 @@ namespace BWW.Pages.CarLoan
             MyApplication.Term = term;
 
             // Test
-            MyApplication.Name = "Haiyun";
-            MyApplication.NRIC = "S1234567A";
-            MyApplication.Contact = "65501622";
-            MyApplication.Salary = 5000;
+            //MyApplication.Name = "Haiyun";
+            //MyApplication.NRIC = "S1234567A";
+            //MyApplication.Contact = "98765432";
+            //MyApplication.Salary = 5000;
         }
 
         public IActionResult OnPost()
@@ -41,7 +41,6 @@ namespace BWW.Pages.CarLoan
                         string msg = "Your loan application is not successful. Please try again later.";
                         TempData["FlashMessage.Type"] = "danger";
                         TempData["FlashMessage.Text"] = msg;
-                        return Page();
                     }
                     else
                     {
