@@ -37,35 +37,6 @@
         <input type="submit" value="Calculate" class="btn btn-primary" />
     </div>
 
-    <!--
-    <div class="row mt-3">
-        <div class="col-sm-4">
-            <div class="card">
-                <div class="card-body">
-                    <h4>
-                        <i class="bi bi-cash-coin" style="font-size: 2rem; color: cornflowerblue;"></i>
-                        <span class="card-title ms-2">x Years</span>
-                    </h4>
-                    <ul class="list-inline text-info">
-                        <li class="list-inline-item" style="width: 30%">Loan</li>
-                        <li class="list-inline-item" style="width: 30%">Rate</li>
-                        <li class="list-inline-item" style="width: 30%">Instalment</li>
-                    </ul>
-                    <ul class="list-inline">
-                        <li class="list-inline-item" style="width: 30%">$xx,xxx.xx</li>
-                        <li class="list-inline-item" style="width: 30%">x.xx%</li>
-                        <li class="list-inline-item" style="width: 30%">$x,xxx.xx</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <a asp-page="/CarLoan/Apply" class="btn btn-primary"
-                       asp-route-loanamt="xxxx" asp-route-term="x">Apply</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
-
     @{
         if (@Model.InstalmentList.Count > 0)
         {
