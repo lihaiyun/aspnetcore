@@ -25,6 +25,7 @@ namespace MyCompany.Pages.Employees
             //MyEmployee.Name = "May Tan";
             //MyEmployee.Gender = "F";
             //MyEmployee.DepartmentId = "IT";
+            //MyEmployee.Salary = 5000;
         }
 
         public IActionResult OnPost()
