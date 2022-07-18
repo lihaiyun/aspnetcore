@@ -31,6 +31,6 @@ namespace MyCompany.Models
 
         [Range(2000, 15000)]
         [Column(TypeName = "decimal(7,2)")]
-        public decimal Salary { get; set; } = 2000;
+        public decimal Salary { get; set; }
     }
 }
