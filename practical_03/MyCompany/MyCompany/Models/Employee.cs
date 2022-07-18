@@ -28,6 +28,6 @@ namespace MyCompany.Models
         public Department? Department { get; set; }
 
         [Range(2000, 15000)]
-        public decimal Salary { get; set; } = 2000;
+        public decimal Salary { get; set; }
     }
 }
