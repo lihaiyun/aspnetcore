@@ -9,7 +9,5 @@ namespace MyCompany.Models
 
         [Required, MaxLength(30)]
         public string Name { get; set; } = string.Empty;
-
-        public List<Employee>? Employees { get; set; }
     }
 }
