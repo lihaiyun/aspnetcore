@@ -33,6 +33,8 @@ namespace MyCompany.Pages.Employees
             }
             else
             {
+                TempData["FlashMessage.Type"] = "danger";
+                TempData["FlashMessage.Text"] = string.Format("Employee ID {0} not found", id);
                 return Redirect("/Employees");
             }
         }
